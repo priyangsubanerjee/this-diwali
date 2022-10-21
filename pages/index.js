@@ -109,6 +109,16 @@ export default function Home({ theme, name, quote }) {
     } catch (err) {}
   };
 
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(
+        `This diwali, ${userName} has got something special for you. Click to view 👉 https://diwalicard.vercel.app?theme=${
+          selectedTheme + 1
+        }&name=${userName}&quote=${selectedQuote + 1}`
+      );
+    } catch (error) {}
+  };
+
   const shareApp = async () => {
     const shareData = {
       title:
@@ -383,7 +393,11 @@ export default function Home({ theme, name, quote }) {
                   Share your personalized card
                 </button>
                 <div className="mt-10 grid grid-cols-2 gap-6">
-                  <button className="active:scale-90 transition-all duration-300 flex items-center space-x-2 bg-black/20 text-white py-3 px-4 rounded-lg">
+                  <button
+                    disabled={userName.length == 0}
+                    onClick={() => copyLink()}
+                    className="active:scale-90 disabled:opacity-50 transition-all duration-300 flex items-center space-x-2 bg-black/20 text-white py-3 px-4 rounded-lg"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
