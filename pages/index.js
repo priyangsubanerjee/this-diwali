@@ -7,7 +7,7 @@ export async function getServerSideProps(ctx) {
   let theme = (ctx.query.theme && ctx.query.theme) || 1;
   let name =
     (ctx.query.name && `${ctx.query.name} wishes you,`) || "Wish you a very, ";
-  let quote = (ctx.query.quote && ctx.query.quote) || 1;
+  let quote = (ctx.query.quote && ctx.query.quote) || 0;
 
   return {
     props: {
