@@ -104,7 +104,7 @@ export default function Home({ theme, name, quote }) {
         "Celebrate the festival of lights online with free, personalized diwali e-cards.",
       text: `This diwali, ${userName} has got something special for you. Click to view 👉 https://diwalicard.vercel.app?theme=${
         selectedTheme + 1
-      }&name=${userName}&quote=${selectedQuote + 1}`,
+      }&name=${userName.trimEnd()}&quote=${selectedQuote + 1}`,
     };
 
     try {
@@ -117,7 +117,7 @@ export default function Home({ theme, name, quote }) {
       await navigator.clipboard.writeText(
         `This diwali, ${userName} has got something special for you. Click to view 👉 https://diwalicard.vercel.app?theme=${
           selectedTheme + 1
-        }&name=${userName}&quote=${selectedQuote + 1}`
+        }&name=${userName.trimEnd()}&quote=${selectedQuote + 1}`
       );
     } catch (error) {}
   };
@@ -456,3 +456,5 @@ export default function Home({ theme, name, quote }) {
     </div>
   );
 }
+
+//This diwali, priyangsu  has got something special for you. Click to view 👉 https://diwalicard.vercel.app?theme=1&name=priyangsu&quote=1
