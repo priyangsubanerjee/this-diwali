@@ -97,7 +97,8 @@ export default function Home({ theme, name, quote }) {
 
   const shareCard = async () => {
     const shareData = {
-      title: "E-Diwali card",
+      title:
+        "Celebrate the festival of lights online with free, personalized diwali e-cards.",
       text: `This diwali, ${userName} has got something special for you. Click to view 👉 https://diwalicard.vercel.app?theme=${selectedTheme}&name=${userName}&quote=${selectedQuote}`,
     };
 
