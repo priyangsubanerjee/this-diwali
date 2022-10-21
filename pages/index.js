@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Fade from "react-reveal/Fade";
 
 export async function getServerSideProps(ctx) {
@@ -20,6 +20,7 @@ export async function getServerSideProps(ctx) {
 
 export default function Home({ theme, name, quote }) {
   const themeMeta = ["#760229", "#1F2D6A", "#044E4F", "#351C70"];
+  const input = useRef(null);
   const lanterns = [
     "/themes/lantern01.svg",
     "/themes/lantern02.svg",
@@ -93,6 +94,8 @@ export default function Home({ theme, name, quote }) {
     createCard
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto");
+
+    createCard && input.current.focus();
   }, [createCard]);
 
   const shareCard = async () => {
@@ -309,6 +312,7 @@ export default function Home({ theme, name, quote }) {
                 <div className="bg-black/20 p-3 rounded-lg">
                   <input
                     type="text"
+                    ref={input}
                     placeholder="Ex: The Rock"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
