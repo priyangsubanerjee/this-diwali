@@ -109,8 +109,15 @@ export default function Home({ theme, name, quote }) {
   return (
     <div className={`h-screen overflow-hidden w-screen ${decideBackground()}`}>
       <Head>
-        <link rel="apple-touch-icon" href="/preview/favicon.png"></link>
-        <link rel="icon" href="/preview/favicon.png" type="image/x-icon" />
+        <link
+          rel="apple-touch-icon"
+          href="https://diwalicard.vercel.app/preview/favicon.png"
+        ></link>
+        <link
+          rel="icon"
+          href="https://diwalicard.vercel.app/preview/favicon.png"
+          type="image/x-icon"
+        />
         <title>
           {userName
             ? `${userName} wish's you a very happy diwali.`
