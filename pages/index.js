@@ -109,6 +109,18 @@ export default function Home({ theme, name, quote }) {
     } catch (err) {}
   };
 
+  const shareApp = async () => {
+    const shareData = {
+      title:
+        "Celebrate the festival of lights online with free, personalized diwali e-cards.",
+      text: `Celebrate the festival of lights online with free, personalized diwali e-cards. Create your personalized card now 👉 https://diwalicard.vercel.app`,
+    };
+
+    try {
+      await navigator.share(shareData);
+    } catch (err) {}
+  };
+
   return (
     <div className={`h-screen overflow-hidden w-screen ${decideBackground()}`}>
       <Head>
@@ -167,6 +179,26 @@ export default function Home({ theme, name, quote }) {
         className="fixed -left-20 -bottom-16 animate-spin-slow transition-all pointer-events-none z-20 w-56"
         alt=""
       />
+
+      <button
+        onClick={() => shareApp()}
+        className="fixed active:scale-90 transition-all duration-300 z-[60] right-6 top-6 h-8 w-8 bg-black/60 text-white flex items-center justify-center rounded-full"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-4 h-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"
+          />
+        </svg>
+      </button>
       <div className="fixed z-40 inset-x-0 bottom-0 select-none  flex items-center justify-center">
         <button
           onClick={() => setCreateCard(true)}
@@ -228,7 +260,7 @@ export default function Home({ theme, name, quote }) {
       <Fade when={createCard}>
         {createCard && (
           <div
-            className={`fixed inset-0 h-screen w-screen z-50 ${decideBackground()} overflow-auto flex flex-col`}
+            className={`fixed inset-0 h-screen w-screen z-[70] ${decideBackground()} overflow-auto flex flex-col`}
           >
             <div className="px-5 mt-5 flex">
               <button
