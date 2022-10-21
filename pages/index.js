@@ -329,7 +329,7 @@ export default function Home({ theme, name, quote }) {
                 >
                   Select quote
                 </label>
-                <div className="overflow-auto flex space-x-4 pb-5">
+                <div className="overflow-auto flex space-x-4 pb-5 scrollbar-hide">
                   {quotes.map((quote, i) => {
                     return (
                       <button
@@ -354,7 +354,7 @@ export default function Home({ theme, name, quote }) {
                 >
                   Select theme
                 </label>
-                <div className="overflow-auto flex space-x-4 snap-x snap-mandatory pr-16">
+                <div className="overflow-auto flex space-x-4 snap-x snap-mandatory pr-16 scrollbar-hide">
                   {themes.map((theme, i) => {
                     return (
                       <button
