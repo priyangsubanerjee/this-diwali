@@ -98,7 +98,7 @@ export default function Home({ theme, name, quote }) {
   const shareCard = async () => {
     const shareData = {
       title: "E-Diwali card",
-      url: `This diwali, ${userName} has got something special for you. Click to view 👉 http://10.5.152.78:3000?theme=${selectedTheme}&name=${userName}&quote=${selectedQuote}`,
+      url: `This diwali, ${userName} has got something special for you. Click to view 👉 https://diwalicard.vercel.app?theme=${selectedTheme}&name=${userName}&quote=${selectedQuote}`,
     };
 
     try {
@@ -128,8 +128,11 @@ export default function Home({ theme, name, quote }) {
         <meta name="author" content="Priyangsu Banerjee" />
         <meta property="og:title" content="This diwali, E-diwali" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/preview/ogimage.png" />
-        <meta property="og:url" content="https://secretconfession.vercel.app" />
+        <meta
+          property="og:image"
+          content="https://diwalicard.vercel.app/preview/ogimage.png"
+        />
+        <meta property="og:url" content="https://diwalicard.vercel.app" />
         <meta property="og:image:type" content="image/png" />
       </Head>
 
