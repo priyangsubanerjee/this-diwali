@@ -226,7 +226,7 @@ export default function Home({ theme, name, quote }) {
       </div>
       <div className="fixed inset-0 h-screen w-screen z-30 flex flex-col items-center justify-center px-8">
         <div className="flex flex-col items-center justify-center -mt-16">
-          <h2 className="text-white/90 font-greatVibes text-lg">{name}</h2>
+          <h2 className="text-white/90 font-greatVibes text-2xl">{name}</h2>
           <h1 className="font-poppins text-white font-bold text-5xl mt-6">
             happy
             <span className={`relative ${decideTextColor()}`}>
