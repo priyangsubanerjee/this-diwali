@@ -58,6 +58,14 @@ export default function Home({ theme, name, quote }) {
     "Deepo se jagmag hai sara sansar, Aaya hai umeedon bhara tyoharon. Diwali ki hardik shubhkamnaen.",
     "Prajwalit hain deep hazaar, Diwali Lekar aayi hai Khushiyon Ki Bahar. Prakash ke tyohar ki aapko Hardik shubhkamnaye Diwali. Happy Diwali",
     "Wishing the goodness of this festive season dwells within you and stays throughout the year. Happy Diwali!!",
+    "The festival of lights becomes more beautiful with the diyas around. Wishing you all the best for the new beginnings in your life. Happy Diwali",
+    "May This Diwali Fulfill All Your Dreams And Bring Happiness To Your Life Forever.",
+    "May the arrival of diwali bring the arrival of happiness in your life. Thereby taking you towards the path of abundance. Happy Diwali.",
+    "All The Lights Of The World Cannot Be Compared Even To A Ray Of The Inner Light Of The Self. Merge Yourself In This Light Of Lights And Enjoy The Supreme Deepavali.",
+    "With all its charms the glow of candles, the warmth of loved one the laughter shared, and moments that are cherished time and again. Diwali ki Shubhkamnaye",
+    "Wishing the goodness of this festive season dwells within you and stays throughout the year. Happy Diwali!",
+    "For this special time family and friends get together for fun. Wishing laughter and fun to cheer your days, in this festive season of diwali and always. Happy Diwali...",
+    "Celebrate the festival by spreading joy and lighting up the world of others. Have a happy, safe, and blessed Diwali.",
   ];
 
   const [selectedTheme, setSelectedTheme] = useState(0);
@@ -175,23 +183,23 @@ export default function Home({ theme, name, quote }) {
 
       <img
         src={lanterns[theme - 1]}
-        className="fixed w-12 left-6 top-0 animate-wiggle transition-all pointer-events-none z-20"
+        className="fixed w-12 lg:w-24 left-6 top-0 animate-wiggle transition-all pointer-events-none z-20"
         alt=""
       />
       <img
         src={lanterns[theme - 1]}
-        className="fixed w-20 left-16 top-0 animate-wiggle_left transition-all pointer-events-none z-20"
+        className="fixed w-20 lg:w-32 left-16 lg:left-32 top-0 animate-wiggle_left transition-all pointer-events-none z-20"
         alt=""
       />
 
       <img
         src={rangolis[theme - 1]}
-        className="fixed -right-20 -top-16 animate-spin-slow transition-all pointer-events-none z-20 w-56"
+        className="fixed -right-20 -top-16 animate-spin-slow transition-all pointer-events-none z-20 w-56 lg:w-72"
         alt=""
       />
       <img
         src={rangolis[theme - 1]}
-        className="fixed -left-20 -bottom-16 animate-spin-slow transition-all pointer-events-none z-20 w-56"
+        className="fixed -left-20 -bottom-16 animate-spin-slow transition-all pointer-events-none z-20 w-56 lg:w-72"
         alt=""
       />
 
