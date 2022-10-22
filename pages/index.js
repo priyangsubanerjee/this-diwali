@@ -547,7 +547,7 @@ export default function Home({ theme, name, quote }) {
                       </p>
 
                       <Link href={page.link}>
-                        <button className="bg-white text-center mt-4 text-black p-2 w-full text-sm rounded-lg active:scale-90 transition-all duration-300">
+                        <button className="bg-black/30 text-center mt-4 text-white p-2 w-full text-sm rounded-lg active:scale-90 transition-all duration-300">
                           Donate
                         </button>
                       </Link>
