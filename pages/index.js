@@ -126,7 +126,7 @@ export default function Home({ theme, name, quote }) {
     try {
       toast("Copied successfully.");
       await navigator.clipboard.writeText(
-        `This diwali, ${userName} has got something special for you. Click to view 👉 https://diwalicard.vercel.app?theme=${
+        `https://diwalicard.vercel.app?theme=${
           selectedTheme + 1
         }&name=${userName.trimEnd()}&quote=${selectedQuote}`
       );
