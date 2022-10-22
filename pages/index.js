@@ -109,7 +109,7 @@ export default function Home({ theme, name, quote }) {
 
     setTimeout(() => {
       createCard && input.current.focus();
-    }, 1000);
+    }, 500);
   }, [createCard]);
 
   const shareCard = async () => {
@@ -443,7 +443,10 @@ export default function Home({ theme, name, quote }) {
                     </svg>
                     <span className="font-poppins text-xs">Copy card link</span>
                   </button>
-                  <button className="active:scale-90 transition-all duration-300 flex items-center space-x-2 bg-black/20 text-white py-3 px-4 rounded-lg">
+                  <button
+                    onClick={() => toast("This feature is coming soon")}
+                    className="active:scale-90 disabled:opacity-50 transition-all duration-300 flex items-center space-x-2 bg-black/20 text-white py-3 px-4 rounded-lg"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
