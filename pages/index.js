@@ -3,6 +3,8 @@ import Head from "next/head";
 import React, { useState, useEffect, useRef } from "react";
 import Fade from "react-reveal/Fade";
 import toast, { Toaster } from "react-hot-toast";
+import donations from "../static/donations";
+import Link from "next/link";
 
 export async function getServerSideProps(ctx) {
   let theme = (ctx.query.theme && ctx.query.theme) || 1;
@@ -72,6 +74,7 @@ export default function Home({ theme, name, quote }) {
   const [selectedQuote, setSelectedQuote] = useState(0);
   const [userName, setUserName] = useState("");
   const [createCard, setCreateCard] = useState(false);
+  const [donationPage, setDonationPage] = useState(false);
 
   const decideBackground = () => {
     switch (theme - 1) {
@@ -281,9 +284,16 @@ export default function Home({ theme, name, quote }) {
               </svg>
             </btn>
           </p>
+          <button
+            onClick={() => setDonationPage(true)}
+            className="flex items-center py-2 text-xs text-white rounded-full px-5 bg-black/30 mt-10 active:scale-90 transition-all duration-300"
+          >
+            <span>this diwali extend your support</span>
+            <i class="bi bi-chevron-right ml-2 text-sm"></i>
+          </button>
         </div>
       </div>
-      <Fade when={createCard}>
+      <Fade duration="300" bottom when={createCard}>
         {createCard && (
           <div
             className={`fixed inset-0 h-screen w-screen z-[70] ${decideBackground()} overflow-auto flex flex-col lg:px-60`}
@@ -459,6 +469,77 @@ export default function Home({ theme, name, quote }) {
               >
                 Priyangsu Banerjee
               </a>
+            </div>
+          </div>
+        )}
+      </Fade>
+      <Fade duration="300" bottom when={donationPage}>
+        {donationPage && (
+          <div
+            className={`fixed inset-0 h-screen w-screen z-[70] ${decideBackground()} overflow-auto flex flex-col lg:px-60 pb-20`}
+          >
+            <div className="px-5 mt-5 flex">
+              <button
+                onClick={() => {
+                  setDonationPage(false);
+                }}
+                className="text-white ml-auto"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div className="px-5">
+              <h1 className="text-zinc-200 font-poppins text-xs bg-black/20 w-fit rounded-full py-2 px-4">
+                <span className="text-white">changemakers</span> | fundraisers
+              </h1>
+              <h2 className="text-white text-xl mt-4 leading-7 font-bold">
+                Making a donation this diwali? 5 people & causes to support with
+                {"'The Spirit of Giving'"}
+              </h2>
+              <p className="text-zinc-100 leading-5 text-xs mt-3">
+                From an NGO that teaches slum children, to one that is freeing
+                girls through football, or the man from Jharkhand who has
+                adopted 35 girls — these organisations and people have devoted
+                themselves to helping others. To continue their inspiring
+                endeavours, they need your help.
+              </p>
+              <div className="mt-10 grid grid-cols-1 gap-5">
+                {donations.map((page, i) => {
+                  return (
+                    <div
+                      key={i}
+                      className="bg-black/10 border border-zinc-900/10 p-4"
+                    >
+                      <h1 className="text-white font-semibold mb-2">
+                        {i + 1}. {page.name}
+                      </h1>
+                      <div className="h-[1px] w-full bg-white/10"></div>
+                      <p className="text-xs text-zinc-100 leading-5 mt-2">
+                        {page.description}
+                      </p>
+
+                      <Link href={page.link}>
+                        <button className="bg-white text-center mt-4 text-black p-2 w-full text-sm rounded-lg active:scale-90 transition-all duration-300">
+                          Donate
+                        </button>
+                      </Link>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         )}
