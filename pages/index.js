@@ -401,7 +401,7 @@ export default function Home({ theme, name, quote }) {
                 >
                   Share your personalized card
                 </button>
-                <div className="mt-10 grid grid-cols-2 gap-6">
+                <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-6">
                   <button
                     disabled={userName.length == 0}
                     onClick={() => copyLink()}
