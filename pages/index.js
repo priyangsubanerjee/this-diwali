@@ -481,7 +481,7 @@ export default function Home({ theme, name, quote }) {
       <Fade duration="300" bottom when={donationPage}>
         {donationPage && (
           <div
-            className={`fixed inset-0 h-screen w-screen z-[70] ${decideBackground()} overflow-auto flex flex-col lg:px-60 pb-20`}
+            className={`fixed inset-0 h-screen w-screen z-[70] ${decideBackground()} overflow-auto flex flex-col lg:px-60`}
           >
             <div className="px-5 mt-5 flex">
               <button
@@ -511,28 +511,28 @@ export default function Home({ theme, name, quote }) {
                 <span className="text-white">changemakers</span> | fundraisers
               </h1>
               <h2 className="text-white text-xl mt-4 leading-7 font-bold">
-                Making a donation this diwali? 5 people & causes to support with
+                Making a donation this diwali? 4 people & causes to support with
                 {"'The Spirit of Giving'"}
               </h2>
-              <p className="text-zinc-100 leading-5 text-xs mt-3">
+              <p className="text-zinc-200 leading-5 text-xs mt-3">
                 From an NGO that teaches slum children, to one that is freeing
                 girls through football, or the man from Jharkhand who has
                 adopted 35 girls — these organisations and people have devoted
                 themselves to helping others. To continue their inspiring
                 endeavours, they need your help.
               </p>
-              <div className="mt-10 grid grid-cols-1 gap-5">
+              <div className="mt-10 grid grid-cols-1 gap-8">
                 {donations.map((page, i) => {
                   return (
                     <div
                       key={i}
-                      className="bg-black/10 border border-zinc-900/10 p-4"
+                      className="bg-black/10 border border-zinc-900/10 p-4 rounded-xl"
                     >
                       <h1 className="text-white font-semibold mb-2">
                         {i + 1}. {page.name}
                       </h1>
                       <div className="h-[1px] w-full bg-white/10"></div>
-                      <p className="text-xs text-zinc-100 leading-5 mt-2">
+                      <p className="text-xs text-zinc-200 leading-5 mt-2">
                         {page.description}
                       </p>
 
@@ -544,6 +544,16 @@ export default function Home({ theme, name, quote }) {
                     </div>
                   );
                 })}
+              </div>
+              <div className="text-center text-xs text-white/80 mt-16 pt-10 mb-20 border-t border-zinc-900/10">
+                Crafted with &hearts; by{" "}
+                <a
+                  href="https://priyangsubanerjee.vercel.app"
+                  className="underline"
+                  rel="noopener noreferrer"
+                >
+                  Priyangsu Banerjee
+                </a>
               </div>
             </div>
           </div>
