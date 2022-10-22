@@ -107,7 +107,9 @@ export default function Home({ theme, name, quote }) {
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto");
 
-    createCard && input.current.focus();
+    setTimeout(() => {
+      createCard && input.current.focus();
+    }, 1000);
   }, [createCard]);
 
   const shareCard = async () => {
