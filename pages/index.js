@@ -2,6 +2,7 @@
 import Head from "next/head";
 import React, { useState, useEffect, useRef } from "react";
 import Fade from "react-reveal/Fade";
+import toast, { Toaster } from "react-hot-toast";
 
 export async function getServerSideProps(ctx) {
   let theme = (ctx.query.theme && ctx.query.theme) || 1;
@@ -114,6 +115,7 @@ export default function Home({ theme, name, quote }) {
 
   const copyLink = async () => {
     try {
+      toast("Copied successfully.");
       await navigator.clipboard.writeText(
         `This diwali, ${userName} has got something special for you. Click to view 👉 https://diwalicard.vercel.app?theme=${
           selectedTheme + 1
@@ -276,7 +278,7 @@ export default function Home({ theme, name, quote }) {
       <Fade when={createCard}>
         {createCard && (
           <div
-            className={`fixed inset-0 h-screen w-screen z-[70] ${decideBackground()} overflow-auto flex flex-col`}
+            className={`fixed inset-0 h-screen w-screen z-[70] ${decideBackground()} overflow-auto flex flex-col lg:px-60`}
           >
             <div className="px-5 mt-5 flex">
               <button
@@ -312,7 +314,7 @@ export default function Home({ theme, name, quote }) {
                 >
                   Enter your name
                 </label>
-                <div className="bg-black/20 p-3 rounded-lg">
+                <div className="bg-black/20 focus-within:bg-black/40 transition-all duration-300 p-3 rounded-lg">
                   <input
                     type="text"
                     ref={input}
