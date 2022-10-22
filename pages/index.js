@@ -106,10 +106,6 @@ export default function Home({ theme, name, quote }) {
     createCard
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto");
-
-    setTimeout(() => {
-      createCard && input.current.focus();
-    }, 500);
   }, [createCard]);
 
   const shareCard = async () => {
