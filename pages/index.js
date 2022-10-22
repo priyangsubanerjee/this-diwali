@@ -517,7 +517,7 @@ export default function Home({ theme, name, quote }) {
               </button>
             </div>
             <div className="px-5">
-              <h1 className="text-zinc-200 font-poppins text-xs bg-black/20 w-fit rounded-full py-2 px-4">
+              <h1 className="text-zinc-200 font-poppins text-xs bg-black/20 w-fit rounded-full py-2 px-4 whitespace-nowrap">
                 <span className="text-white">changemakers</span> | fundraisers
               </h1>
               <h2 className="text-white text-xl mt-4 leading-7 font-bold">
