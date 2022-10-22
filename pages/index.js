@@ -133,6 +133,17 @@ export default function Home({ theme, name, quote }) {
     } catch (error) {}
   };
 
+  const copyTextLink = async () => {
+    try {
+      toast("Copied successfully.");
+      await navigator.clipboard.writeText(
+        `This diwali, ${userName} has got something special for you. Click to view 👉 https://diwalicard.vercel.app?theme=${
+          selectedTheme + 1
+        }&name=${userName.trimEnd()}&quote=${selectedQuote}`
+      );
+    } catch (error) {}
+  };
+
   const shareApp = async () => {
     const shareData = {
       title:
@@ -434,7 +445,7 @@ export default function Home({ theme, name, quote }) {
                   <button
                     disabled={userName.length == 0}
                     onClick={() => copyLink()}
-                    className="active:scale-90 disabled:opacity-50 transition-all duration-300 flex items-center space-x-2 bg-black/20 text-white py-3 px-4 rounded-lg"
+                    className="active:scale-90 disabled:opacity-50 transition-all duration-300 flex items-center justify-center space-x-2 bg-black/20 text-white py-3 px-4 rounded-lg"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -453,21 +464,26 @@ export default function Home({ theme, name, quote }) {
                     <span className="font-poppins text-xs">Copy card link</span>
                   </button>
                   <button
-                    onClick={() => toast("This feature is coming soon")}
-                    className="active:scale-90 disabled:opacity-50 transition-all duration-300 flex items-center space-x-2 bg-black/20 text-white py-3 px-4 rounded-lg"
+                    disabled={userName.length == 0}
+                    onClick={() => copyTextLink()}
+                    className="active:scale-90 disabled:opacity-50 transition-all duration-300 flex items-center justify-center space-x-2 bg-black/20 text-white py-3 px-4 rounded-lg"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className="bi bi-twitter"
-                      viewBox="0 0 16 16"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      className="w-4 h-4 shrink-0"
                     >
-                      <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"
+                      />
                     </svg>
                     <span className="font-poppins text-xs whitespace-nowrap">
-                      Share as tweet
+                      Copy text
                     </span>
                   </button>
                 </div>
